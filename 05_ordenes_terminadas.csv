@@ -1,0 +1,7 @@
+SET search_path TO taller, public;
+
+SELECT ot.id AS orden_id, v.matrícula, c.nombre AS cliente, ot.entrada, ot.salida, ot.importe_total 
+FROM taller.orden_trabajo ot 
+JOIN taller.vehiculo v ON ot.vehiculo_id = v.id 
+JOIN taller.cliente c ON v.cliente_id = c.id 
+WHERE ot.estado = 'terminada';
